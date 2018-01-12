@@ -148,12 +148,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="LitHttpClient.h" />
     <ClInclude Include="LitHttpConfig.h" />
     <ClInclude Include="LitHttpServer.h" />
     <ClInclude Include="LitRequestHandler.h" />
     <ClInclude Include="LitRequestHandlerFactory.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LitHttpClient.cpp" />
     <ClCompile Include="LitHttpServer.cpp" />
     <ClCompile Include="LitRequestHandler.cpp" />
     <ClCompile Include="LitRequestHandlerFactory.cpp" />
