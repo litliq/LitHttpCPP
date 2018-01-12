@@ -15,7 +15,7 @@
 class LIT_HTTP_API LitRequestHandler : public Poco::Net::HTTPRequestHandler
 {
 public:
-	LitRequestHandler(const std::string &webDir);
+	LitRequestHandler(const std::string &webDir, const std::string& sContentType);
 	~LitRequestHandler(void);
 
 
@@ -25,6 +25,7 @@ private:
 	std::string m_website_path;
 	std::string m_index_path;
 	std::string m_error_path;
+	std::string m_sContentType;
 	
 };
 

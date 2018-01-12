@@ -2,9 +2,10 @@
 #include "LitRequestHandler.h"
 
 
-LitRequestHandlerFactory::LitRequestHandlerFactory(std::string &webDir)
+LitRequestHandlerFactory::LitRequestHandlerFactory(const std::string &webDir, const std::string& sContentType)
 {
 	m_sWebdir = webDir;
+	m_sContentType = sContentType;
 }
 
 LitRequestHandlerFactory::~LitRequestHandlerFactory(void)
@@ -37,7 +38,7 @@ HTTPRequestHandler* LitRequestHandlerFactory::createRequestHandler(const Poco::N
         return m_httpReqFactory.createInstance (className);
     }
 
-    return new LitRequestHandler(m_sWebdir);
+    return new LitRequestHandler(m_sWebdir, m_sContentType);
 }
 
 HTTPRequestHandler* LitRequestHandlerFactory::createRequestHandler (const std::string& className) const

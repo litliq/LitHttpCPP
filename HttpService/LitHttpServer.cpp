@@ -38,7 +38,7 @@ bool LitHttpServer::registerURI(std::string uri, std::string handler,Poco::Abstr
     return false;
 }
 
-void LitHttpServer::start(std::string sPath, int iPort)
+void LitHttpServer::start(const std::string &sPath, const std::string& sContentType, int iPort)
 {
 	setPort(iPort);
 	setWebDir(sPath);
@@ -54,7 +54,7 @@ void LitHttpServer::start(std::string sPath, int iPort)
         pParams->setKeepAliveTimeout(Poco::Timespan(10,0));
         pParams->setMaxKeepAliveRequests(100);
 
-        m_pFactory = new LitRequestHandlerFactory(m_sWebdir);
+        m_pFactory = new LitRequestHandlerFactory(m_sWebdir, sContentType);
 
         m_pSrv = new Poco::Net::HTTPServer(m_pFactory, *m_pSvs, pParams);
         m_pSrv->start();

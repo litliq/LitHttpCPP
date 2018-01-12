@@ -13,7 +13,7 @@ class LitRequestHandlerFactory : public HTTPRequestHandlerFactory
 public:  
 	typedef Poco::AbstractInstantiator<HTTPRequestHandler> HttpReqFactory;
 
-	LitRequestHandlerFactory(std::string &webDir);
+	LitRequestHandlerFactory(const std::string &webDir, const std::string& sContentType);
 	~LitRequestHandlerFactory(void);
 
 	virtual HTTPRequestHandler* createRequestHandler(const Poco::Net::HTTPServerRequest& request);
@@ -25,6 +25,7 @@ public:
 private:
 
 	std::string m_sWebdir;
+	std::string m_sContentType;
     std::map<std::string, std::string> m_uriRoute;
     Poco::DynamicFactory<HTTPRequestHandler> m_httpReqFactory;
 };

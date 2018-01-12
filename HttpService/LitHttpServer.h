@@ -14,7 +14,7 @@ public:
 	~LitHttpServer(void);
 
 public:
-	void start(std::string sPath, int iPort);
+	void start(const std::string &sPath, const std::string& sContentType, int iPort);
 
 	void stop();
 

@@ -7,7 +7,7 @@ int main()
 {
 	LitHttpServer server;
 	std::cout << "http server start\n";
-	server.start("server", 6000);	
+	server.start("server", "text/html", 5000);	
 
 #ifdef WIN32
 	system("pause");
